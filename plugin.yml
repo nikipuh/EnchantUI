@@ -4,5 +4,5 @@ version: 1.0.0
 api: [3.0.0-ALPHA9, 3.0.0-ALPHA10]
 author: LeNick
 commands:
-  enchant:
+  vz:
     description: Verzaubere deine Items mit Talern.
