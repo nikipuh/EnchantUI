@@ -19,7 +19,7 @@ class EnchantUI extends PluginBase implements Listener{
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
         $player = $sender->getPlayer();
         switch ($cmd->getName()){
-            case "enchant":
+            case "vz":
                 $this->mainFrom($player);
                 break;
         }
