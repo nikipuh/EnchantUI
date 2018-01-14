@@ -34,7 +34,9 @@ class EnchantUI extends PluginBase implements Listener{
             if($result === null){
             }
             switch($result){
-                case 0: //Waffe
+			    case 0:
+                    return;
+                case 1: //Waffe
       $item = $player->getInventory()->getItemInHand();
       $enchantment = Enchantment::getEnchantment(mt_rand(9, 14))->setLevel((int)rand(1,2));;
       $money = EconomyAPI::getInstance()->myMoney($player);
@@ -47,7 +49,7 @@ class EnchantUI extends PluginBase implements Listener{
 			$player->sendMessage("Dein Item wurde verzaubert!");
 		}
                     return;
-                case 1://Werkzeug
+                case 2://Werkzeug
       $item = $player->getInventory()->getItemInHand();
       $enchantment = Enchantment::getEnchantment(mt_rand(15, 18))->setLevel((int)rand(1,3));;
       $money = EconomyAPI::getInstance()->myMoney($player);
@@ -60,7 +62,7 @@ class EnchantUI extends PluginBase implements Listener{
 			$player->sendMessage("Dein Item wurde verzaubert!");
 		}
                     return;
-                case 2:
+                case 3:
                     $item = $player->getInventory()->getItemInHand();
       $enchantment = Enchantment::getEnchantment(mt_rand(0, 5))->setLevel((int)rand(1,4));;
       $money = EconomyAPI::getInstance()->myMoney($player);
@@ -73,7 +75,7 @@ class EnchantUI extends PluginBase implements Listener{
 			$player->sendMessage("Dein Item wurde verzaubert!");
 		}
                     return;
-                    case 3: //Bogen
+                    case 4: //Bogen
                     $item = $player->getInventory()->getItemInHand();
       $enchantment = Enchantment::getEnchantment(mt_rand(19, 22))->setLevel((int)rand(1,2));;
       $money = EconomyAPI::getInstance()->myMoney($player);
@@ -93,7 +95,8 @@ class EnchantUI extends PluginBase implements Listener{
         $eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
         $money = $eco->myMoney($name);
         $form->setContent("Dein Geld: $money\n§cBitte gehe sicher dass du das richtige Item in der Hand hast!\nWenn du einen Button drückst wird dein Item mit einer zufällige Verzauberung und zufälliger Stärke verzaubert.");
-        $form->addButton(TextFormat::WHITE."§0Waffen verzaubern: 10.000 Taler");
+        $form->addButton(TextFormat::WHITE."§cMenü verlassen.");
+	    $form->addButton(TextFormat::WHITE."§0Waffen verzaubern: 10.000 Taler");
         $form->addButton(TextFormat::WHITE."§0Werkzeuge verzaubern: 5.000 Taler");
         $form->addButton(TextFormat::WHITE."§0Rüstungsteile verzaubern: 10.000 Taler");
         $form->addButton(TextFormat::WHITE."§0Bogen verzaubern: 7.500 Taler");
